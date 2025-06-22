@@ -5,3 +5,5 @@ Composable Functions
 - mutableState
 - remember and rememberSaveable methods
 - Lazy Columns
+- Themming
+- Card
