@@ -1,5 +1,6 @@
 package br.vino.a001_basics_codelab
 
+import android.content.res.Configuration
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -28,6 +29,7 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import br.vino.a001_basics_codelab.ui.theme.ComposableFunctionsTheme
@@ -91,7 +93,9 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
                 .weight(1f).padding(bottom = extraPadding)
             ) {
                 Text(text = "Hello ")
-                Text(text = "$name!")
+                Text(text = name, style = MaterialTheme.typography.headlineMedium.copy(
+                    fontWeight = FontWeight.ExtraBold
+                ))
             }
             OutlinedButton(onClick = { expanded.value = !expanded.value }) {
                 Text(
@@ -130,10 +134,11 @@ fun OnboardingPreview() {
     }
 }
 
+@Preview(showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
     ComposableFunctionsTheme {
-        MyApp()
+        Greetings()
     }
 }
